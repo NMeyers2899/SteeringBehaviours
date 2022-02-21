@@ -3,5 +3,6 @@
 
 class WanderBehaviour : public Component
 {
+
 };
 

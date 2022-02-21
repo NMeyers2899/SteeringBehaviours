@@ -4,24 +4,28 @@
 #include "MoveComponent.h"
 #include "SpriteComponent.h"
 
-Agent::Agent()
+Agent::Agent() : Actor(0, 0, "agent")
 {
-	Actor::start();
-
 	m_target = nullptr;
-	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("SpriteComponent", "Images/player.png")));
-	m_fleeBehaviour = dynamic_cast<FleeBehaviour*>(addComponent(new FleeBehaviour(this, nullptr, m_moveComponent)));
 }
 
-Agent::Agent(float xPos, float yPos, Actor* target)
+Agent::Agent(float xPos, float yPos, Actor* target, float fleeForce, float seekForce,
+	float wanderForce) : Actor(xPos, yPos, "agent")
+{
+	m_target = target;
+	m_fleeForce = fleeForce;
+	m_seekForce = seekForce;
+	m_wanderForce = wanderForce;
+}
+
+void Agent::start()
 {
 	Actor::start();
 
-	m_target = target;
 	m_moveComponent = dynamic_cast<MoveComponent*>(addComponent(new MoveComponent()));
-	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("SpriteComponent", "Images/player.png")));
-	m_fleeBehaviour = dynamic_cast<FleeBehaviour*>(addComponent(new FleeBehaviour(this, nullptr, m_moveComponent)));
+	m_moveComponent->setMaxSpeed(250);
+	m_spriteComponent = dynamic_cast<SpriteComponent*>(addComponent(new SpriteComponent("SpriteComponent", "Images/enemy.png")));
+	m_fleeBehaviour = dynamic_cast<FleeBehaviour*>(addComponent(new FleeBehaviour(m_target, m_moveComponent, m_seekForce)));
 }
 
 void Agent::setTarget(Actor* value)

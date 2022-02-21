@@ -9,7 +9,7 @@ class FleeBehaviour : public Component
 {
 public:
 	FleeBehaviour();
-	FleeBehaviour(Actor* owner, Actor* target, MoveComponent* moveComponent);
+	FleeBehaviour(Actor* target, MoveComponent* moveComponent, float force);
 	~FleeBehaviour() {};
 
 	void update(float deltaTime) override;
@@ -17,11 +17,11 @@ public:
 	void setTarget(Actor* value) { m_target = value; }
 
 private:
-	Actor* m_owner;
 	Actor* m_target;
 	MoveComponent* m_moveComponent;
 	MathLibrary::Vector2 m_desiredVelocity;
 	MathLibrary::Vector2 m_steeringForce;
-	int m_priority;
+	MathLibrary::Vector2 m_currentVelocity;
+	float m_force;
 };
 
