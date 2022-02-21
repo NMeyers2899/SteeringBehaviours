@@ -1,7 +1,8 @@
 #pragma once
 #include "Component.h"
 
-class SeekBehaviour
+class SeekBehaviour : public Component
 {
+
 };
 

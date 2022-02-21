@@ -1,7 +1,7 @@
 #pragma once
 #include "Component.h"
 
-class WanderBehaviour
+class WanderBehaviour : public Component
 {
 };
 
