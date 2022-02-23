@@ -27,7 +27,7 @@ private:
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
 	float m_fleeForce;
-	float m_seekForce = 100;
+	float m_seekForce;
 	float m_wanderForce;
 };
 

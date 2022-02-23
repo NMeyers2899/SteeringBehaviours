@@ -1,7 +1,6 @@
 #include "SeekBehaviour.h"
 #include "MoveComponent.h"
 #include "Actor.h"
-#include <Vector2.h>
 
 SeekBehaviour::SeekBehaviour()
 {
