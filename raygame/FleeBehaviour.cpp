@@ -33,6 +33,6 @@ void FleeBehaviour::update(float deltaTime)
 
 		newPosition = newPosition + (m_currentVelocity * deltaTime);
 
-		getOwner()->getTransform()->setWorldPosition(newPosition);
+		m_moveComponent->setVelocity(newPosition);
 	}
 }

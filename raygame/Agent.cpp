@@ -31,6 +31,14 @@ void Agent::start()
 	m_wanderBehaviour = dynamic_cast<WanderBehaviour*>(addComponent(new WanderBehaviour(m_moveComponent, m_wanderForce, 10, 50)));
 }
 
+void Agent::update(float deltaTime)
+{
+	Actor::update(deltaTime);
+
+	if (m_moveComponent->getVelocity().getMagnitude() > m_maxSpeed)
+		m_moveComponent->setVelocity(m_moveComponent->getVelocity().getNormalized() * m_maxSpeed);
+}
+
 void Agent::setTarget(Actor* value)
 {
 	m_target = value;

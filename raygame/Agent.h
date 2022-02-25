@@ -16,6 +16,7 @@ public:
 	~Agent() {};
 
 	void start() override;
+	void update(float deltaTime) override;
 
 	void setTarget(Actor* value);
 
@@ -29,5 +30,6 @@ private:
 	float m_fleeForce;
 	float m_seekForce;
 	float m_wanderForce;
+	float m_maxSpeed = 200;
 };
 
