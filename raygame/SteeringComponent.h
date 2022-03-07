@@ -9,7 +9,7 @@ public:
 
 	void update(float deltaTime) override;
 
-	MathLibrary::Vector2 calculateForce();
+	/*MathLibrary::Vector2 calculateForce();*/
 
 private:
 	MathLibrary::Vector2 m_force;

@@ -10,7 +10,7 @@ void SteeringComponent::update(float deltaTime)
 
 }
 
-MathLibrary::Vector2 SteeringComponent::calculateForce()
-{
-	
-}
+//MathLibrary::Vector2 SteeringComponent::calculateForce()
+//{
+//
+//}

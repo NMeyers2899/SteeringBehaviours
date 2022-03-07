@@ -157,6 +157,11 @@ Component* Actor::getComponent(const char* name)
     }
 }
 
+void Actor::onAddComponent(Component* comp)
+{
+
+}
+
 void Actor::update(float deltaTime)
 {
     for (int i = 0; i < m_componentCount; i++) 

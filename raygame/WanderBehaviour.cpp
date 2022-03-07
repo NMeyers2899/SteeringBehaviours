@@ -21,7 +21,7 @@ void WanderBehaviour::update(float deltaTime)
 
 	// Sets the target to be a point on the circle that surrounds the agent.
 	MathLibrary::Vector2 targetCircle = getOwner()->getTransform()->getWorldPosition() + 
-		(getOwner()->getTransform()->getForward() * m_circleDistance);
+		(getOwner()->getTransform()->getForward().getNormalized() * m_circleDistance);
 
 	target = (target.getNormalized() * m_radius) + targetCircle;
 	

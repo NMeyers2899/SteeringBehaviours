@@ -11,12 +11,16 @@ class Agent : public Actor
 {
 public:
 	Agent();
-	Agent(float xPos, float yPos, Actor* m_target, float fleeForce, float seekForce, 
-		float wanderForce);
+	Agent(float xPos, float yPos, Actor* m_target, float force);
 	~Agent() {};
 
 	void start() override;
 	void update(float deltaTime) override;
+	void onAddComponent(Component* comp) override;
+
+	float getForce() { return m_force; }
+	void setForce(float value) { m_force = value; }
+
 
 	void setTarget(Actor* value);
 
@@ -27,9 +31,7 @@ private:
 	WanderBehaviour* m_wanderBehaviour;
 	MoveComponent* m_moveComponent;
 	SpriteComponent* m_spriteComponent;
-	float m_fleeForce;
-	float m_seekForce;
-	float m_wanderForce;
+	float m_force;
 	float m_maxSpeed = 200;
 };
 

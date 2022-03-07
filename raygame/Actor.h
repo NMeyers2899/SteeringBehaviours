@@ -92,6 +92,8 @@ public:
     /// <returns> The component of the specified name. </returns>
     Component* getComponent(const char* name);
 
+    virtual void onAddComponent(Component* comp);
+
 protected:
     const char* m_name;
 
